@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace BookHaven_Bookstore_Management_System.Forms
 {
-    public partial class LoginForm : Form
+    public partial class LoginForm: Form
     {
         public LoginForm()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

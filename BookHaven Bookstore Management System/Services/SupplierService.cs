@@ -44,7 +44,7 @@ namespace BookHaven_Bookstore_Management_System.Services
 
         public void UpdateSupplier(int supplierID, string name, string contactInfo)
         {
-            string query = "UPDATE suppliers SET name = @name, contact_info = @contactInfo WHERE id = @id";
+            string query = "UPDATE suppliers SET name = @Name, contact_info = @ContactInfo WHERE SupplierID = @SupplierID";
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = new SqlCommand(query, conn);
@@ -58,11 +58,11 @@ namespace BookHaven_Bookstore_Management_System.Services
 
         public void DeleteSupplier(int supplierID)
         {
-            string query = "DELETE FROM suppliers WHERE id = @id";
+            string query = "DELETE FROM Suppliers WHERE SupplierID = @SupplierID";
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@id", supplierID);
+                cmd.Parameters.AddWithValue("@SupplierID", supplierID);
                 conn.Open();
                 cmd.ExecuteNonQuery();
             }

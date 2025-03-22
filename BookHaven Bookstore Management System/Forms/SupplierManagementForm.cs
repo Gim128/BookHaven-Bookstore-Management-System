@@ -15,10 +15,11 @@ namespace BookHaven_Bookstore_Management_System.Forms
     {
 
         private SupplierService supplierService;
+
         public SupplierManagementForm()
         {
             InitializeComponent();
-            supplierService = new SupplierService("");
+            supplierService = new SupplierService("Your_Connection_String_Here");
             LoadSuppliers();
         }
 
@@ -32,6 +33,7 @@ namespace BookHaven_Bookstore_Management_System.Forms
         {
             string name = txtName.Text;
             string contactInfo = txtContactInfo.Text;
+
             if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(contactInfo))
             {
                 MessageBox.Show("Please fill in all fields.");
@@ -49,6 +51,65 @@ namespace BookHaven_Bookstore_Management_System.Forms
             txtContactInfo.Clear();
         }
 
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewSuppliers.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a supplier to update.");
+                return;
+            }
+
+            int supplierID = int.Parse(s: dataGridViewSuppliers.SelectedRows[0].Cells["SupplierID"].Value.ToString());
+            string name = txtName.Text;
+            string contactInfo = txtContactInfo.Text;
+
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(contactInfo))
+            {
+                MessageBox.Show("Please fill in all fields.");
+                return;
+            }
+
+            supplierService.UpdateSupplier(supplierID, name, contactInfo);
+            LoadSuppliers(); // Refresh the DataGridView
+            ClearFields();
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewSuppliers.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a supplier to delete.");
+                return;
+            }
+
+            int supplierID = int.Parse(dataGridViewSuppliers.SelectedRows[0].Cells["SupplierID"].Value.ToString());
+
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this supplier?", "Confirm Delete", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                supplierService.DeleteSupplier(supplierID);
+                LoadSuppliers(); 
+                ClearFields();
+            }
+        }
+
+        private void btnGenerateOrder_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewSuppliers.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a supplier to generate an order.");
+                return;
+            }
+
+            int supplierID = int.Parse(dataGridViewSuppliers.SelectedRows[0].Cells["SupplierID"].Value.ToString());
+            string supplierName = dataGridViewSuppliers.SelectedRows[0]
+                                                       .Cells["Name"].Value
+                                                       .ToString();
+
+            
+            MessageBox.Show($"Order generated for supplier: {supplierName}");
+        }
+
         private void dataGridViewSuppliers_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridViewSuppliers.SelectedRows.Count > 0)
@@ -58,5 +119,6 @@ namespace BookHaven_Bookstore_Management_System.Forms
                 txtContactInfo.Text = row.Cells["ContactInfo"].Value.ToString();
             }
         }
+
     }
 }

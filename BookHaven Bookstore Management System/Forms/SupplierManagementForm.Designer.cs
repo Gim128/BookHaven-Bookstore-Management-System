@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            lblName = new Label();
+            lblContactInfo = new Label();
             txtName = new TextBox();
             txtContactInfo = new TextBox();
-            lblName = new Label();
-            lblContact = new Label();
             btnAdd = new Button();
             btnUpdate = new Button();
             btnDelete = new Button();
@@ -43,70 +43,70 @@
             ((System.ComponentModel.ISupportInitialize)dataGridViewSuppliers).BeginInit();
             SuspendLayout();
             // 
-            // txtName
-            // 
-            txtName.Location = new Point(49, 68);
-            txtName.Name = "txtName";
-            txtName.Size = new Size(242, 27);
-            txtName.TabIndex = 0;
-            // 
-            // txtContactInfo
-            // 
-            txtContactInfo.Location = new Point(332, 68);
-            txtContactInfo.Name = "txtContactInfo";
-            txtContactInfo.Size = new Size(242, 27);
-            txtContactInfo.TabIndex = 1;
-            // 
             // lblName
             // 
             lblName.AutoSize = true;
-            lblName.Location = new Point(49, 39);
+            lblName.Location = new Point(38, 48);
             lblName.Name = "lblName";
             lblName.Size = new Size(49, 20);
-            lblName.TabIndex = 2;
+            lblName.TabIndex = 0;
             lblName.Text = "Name";
             // 
-            // lblContact
+            // lblContactInfo
             // 
-            lblContact.AutoSize = true;
-            lblContact.Location = new Point(327, 39);
-            lblContact.Name = "lblContact";
-            lblContact.Size = new Size(60, 20);
-            lblContact.TabIndex = 3;
-            lblContact.Text = "Contact";
+            lblContactInfo.AutoSize = true;
+            lblContactInfo.Location = new Point(284, 48);
+            lblContactInfo.Name = "lblContactInfo";
+            lblContactInfo.Size = new Size(90, 20);
+            lblContactInfo.TabIndex = 1;
+            lblContactInfo.Text = "Contact Info";
+            // 
+            // txtName
+            // 
+            txtName.Location = new Point(44, 78);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(172, 27);
+            txtName.TabIndex = 2;
+            // 
+            // txtContactInfo
+            // 
+            txtContactInfo.Location = new Point(284, 78);
+            txtContactInfo.Name = "txtContactInfo";
+            txtContactInfo.Size = new Size(172, 27);
+            txtContactInfo.TabIndex = 3;
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(54, 147);
+            btnAdd.Location = new Point(573, 48);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(178, 53);
+            btnAdd.Size = new Size(135, 50);
             btnAdd.TabIndex = 4;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = true;
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(268, 147);
+            btnUpdate.Location = new Point(752, 48);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(178, 53);
+            btnUpdate.Size = new Size(135, 50);
             btnUpdate.TabIndex = 5;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = true;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(477, 147);
+            btnDelete.Location = new Point(935, 48);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(178, 53);
+            btnDelete.Size = new Size(135, 50);
             btnDelete.TabIndex = 6;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
             // 
             // btnGenerateOrder
             // 
-            btnGenerateOrder.Location = new Point(888, 76);
+            btnGenerateOrder.Location = new Point(573, 118);
             btnGenerateOrder.Name = "btnGenerateOrder";
-            btnGenerateOrder.Size = new Size(183, 50);
+            btnGenerateOrder.Size = new Size(135, 50);
             btnGenerateOrder.TabIndex = 7;
             btnGenerateOrder.Text = "Generate Order";
             btnGenerateOrder.UseVisualStyleBackColor = true;
@@ -115,10 +115,10 @@
             // 
             dataGridViewSuppliers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewSuppliers.Columns.AddRange(new DataGridViewColumn[] { SupplierID, Name, ContactInfo });
-            dataGridViewSuppliers.Location = new Point(61, 252);
+            dataGridViewSuppliers.Location = new Point(346, 245);
             dataGridViewSuppliers.Name = "dataGridViewSuppliers";
             dataGridViewSuppliers.RowHeadersWidth = 51;
-            dataGridViewSuppliers.Size = new Size(429, 282);
+            dataGridViewSuppliers.Size = new Size(429, 255);
             dataGridViewSuppliers.TabIndex = 8;
             // 
             // SupplierID
@@ -147,16 +147,16 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1184, 549);
+            ClientSize = new Size(1189, 540);
             Controls.Add(dataGridViewSuppliers);
             Controls.Add(btnGenerateOrder);
             Controls.Add(btnDelete);
             Controls.Add(btnUpdate);
             Controls.Add(btnAdd);
-            Controls.Add(lblContact);
-            Controls.Add(lblName);
             Controls.Add(txtContactInfo);
             Controls.Add(txtName);
+            Controls.Add(lblContactInfo);
+            Controls.Add(lblName);
             Name = "SupplierManagementForm";
             Text = "SupplierManagementForm";
             ((System.ComponentModel.ISupportInitialize)dataGridViewSuppliers).EndInit();
@@ -166,10 +166,10 @@
 
         #endregion
 
+        private Label lblName;
+        private Label lblContactInfo;
         private TextBox txtName;
         private TextBox txtContactInfo;
-        private Label lblName;
-        private Label lblContact;
         private Button btnAdd;
         private Button btnUpdate;
         private Button btnDelete;

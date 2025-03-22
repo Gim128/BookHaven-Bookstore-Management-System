@@ -28,20 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            btnCreate = new Button();
+            btnUpdate = new Button();
+            btnDelete = new Button();
+            btnSearch = new Button();
             lblTitle = new Label();
             lblAuthor = new Label();
             lblGenre = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
             lblISBN = new Label();
-            lblPrice = new Label();
-            textBox5 = new TextBox();
             lblStockQuantity = new Label();
-            textBox6 = new TextBox();
-            lblBookManagement = new Label();
-            dataGridViewBooks = new DataGridView();
+            txtTitle = new TextBox();
+            txtAuthor = new TextBox();
+            txtGenre = new TextBox();
+            txtISBN = new TextBox();
+            txtSTockQuantity = new TextBox();
+            dataGridViewBook = new DataGridView();
             BookID = new DataGridViewTextBoxColumn();
             Title = new DataGridViewTextBoxColumn();
             Author = new DataGridViewTextBoxColumn();
@@ -49,126 +50,136 @@
             ISBN = new DataGridViewTextBoxColumn();
             Price = new DataGridViewTextBoxColumn();
             StockQuantity = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewBooks).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewBook).BeginInit();
             SuspendLayout();
+            // 
+            // btnCreate
+            // 
+            btnCreate.Location = new Point(227, 267);
+            btnCreate.Name = "btnCreate";
+            btnCreate.Size = new Size(129, 39);
+            btnCreate.TabIndex = 0;
+            btnCreate.Text = "Create";
+            btnCreate.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdate
+            // 
+            btnUpdate.Location = new Point(383, 267);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(129, 39);
+            btnUpdate.TabIndex = 1;
+            btnUpdate.Text = "Update";
+            btnUpdate.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(543, 267);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(129, 39);
+            btnDelete.TabIndex = 2;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Location = new Point(695, 267);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(129, 39);
+            btnSearch.TabIndex = 3;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
             // 
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.Location = new Point(133, 88);
+            lblTitle.Location = new Point(51, 45);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(38, 20);
-            lblTitle.TabIndex = 0;
+            lblTitle.TabIndex = 4;
             lblTitle.Text = "Title";
+            lblTitle.Click += label1_Click;
             // 
             // lblAuthor
             // 
             lblAuthor.AutoSize = true;
-            lblAuthor.Location = new Point(382, 88);
+            lblAuthor.Location = new Point(329, 45);
             lblAuthor.Name = "lblAuthor";
-            lblAuthor.Size = new Size(54, 20);
-            lblAuthor.TabIndex = 1;
-            lblAuthor.Text = "Author";
+            lblAuthor.Size = new Size(71, 20);
+            lblAuthor.TabIndex = 5;
+            lblAuthor.Text = "lblAuthor";
+            lblAuthor.Click += label2_Click;
             // 
             // lblGenre
             // 
             lblGenre.AutoSize = true;
-            lblGenre.Location = new Point(662, 88);
+            lblGenre.Location = new Point(603, 45);
             lblGenre.Name = "lblGenre";
             lblGenre.Size = new Size(48, 20);
-            lblGenre.TabIndex = 2;
+            lblGenre.TabIndex = 6;
             lblGenre.Text = "Genre";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(133, 114);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(165, 27);
-            textBox1.TabIndex = 3;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(382, 114);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(165, 27);
-            textBox2.TabIndex = 4;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(662, 114);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(165, 27);
-            textBox3.TabIndex = 5;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(133, 204);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(165, 27);
-            textBox4.TabIndex = 6;
             // 
             // lblISBN
             // 
             lblISBN.AutoSize = true;
-            lblISBN.Location = new Point(133, 177);
+            lblISBN.Location = new Point(879, 45);
             lblISBN.Name = "lblISBN";
             lblISBN.Size = new Size(41, 20);
             lblISBN.TabIndex = 7;
             lblISBN.Text = "ISBN";
             // 
-            // lblPrice
-            // 
-            lblPrice.AutoSize = true;
-            lblPrice.Location = new Point(382, 177);
-            lblPrice.Name = "lblPrice";
-            lblPrice.Size = new Size(41, 20);
-            lblPrice.TabIndex = 9;
-            lblPrice.Text = "Price";
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(382, 204);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(165, 27);
-            textBox5.TabIndex = 8;
-            // 
             // lblStockQuantity
             // 
             lblStockQuantity.AutoSize = true;
-            lblStockQuantity.Location = new Point(662, 177);
+            lblStockQuantity.Location = new Point(51, 152);
             lblStockQuantity.Name = "lblStockQuantity";
             lblStockQuantity.Size = new Size(105, 20);
-            lblStockQuantity.TabIndex = 11;
+            lblStockQuantity.TabIndex = 8;
             lblStockQuantity.Text = "Stock Quantity";
             // 
-            // textBox6
+            // txtTitle
             // 
-            textBox6.Location = new Point(662, 204);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(165, 27);
-            textBox6.TabIndex = 10;
+            txtTitle.Location = new Point(51, 90);
+            txtTitle.Name = "txtTitle";
+            txtTitle.Size = new Size(194, 27);
+            txtTitle.TabIndex = 9;
             // 
-            // lblBookManagement
+            // txtAuthor
             // 
-            lblBookManagement.AutoSize = true;
-            lblBookManagement.Location = new Point(430, 26);
-            lblBookManagement.Name = "lblBookManagement";
-            lblBookManagement.Size = new Size(135, 20);
-            lblBookManagement.TabIndex = 12;
-            lblBookManagement.Text = "Book Management";
-            lblBookManagement.Click += label1_Click;
+            txtAuthor.Location = new Point(329, 90);
+            txtAuthor.Name = "txtAuthor";
+            txtAuthor.Size = new Size(194, 27);
+            txtAuthor.TabIndex = 10;
             // 
-            // dataGridViewBooks
+            // txtGenre
             // 
-            dataGridViewBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewBooks.Columns.AddRange(new DataGridViewColumn[] { BookID, Title, Author, Genre, ISBN, Price, StockQuantity });
-            dataGridViewBooks.Dock = DockStyle.Bottom;
-            dataGridViewBooks.Location = new Point(0, 288);
-            dataGridViewBooks.Name = "dataGridViewBooks";
-            dataGridViewBooks.RowHeadersWidth = 51;
-            dataGridViewBooks.Size = new Size(988, 264);
-            dataGridViewBooks.TabIndex = 13;
-            dataGridViewBooks.CellContentClick += dataGridView1_CellContentClick_1;
+            txtGenre.Location = new Point(603, 90);
+            txtGenre.Name = "txtGenre";
+            txtGenre.Size = new Size(194, 27);
+            txtGenre.TabIndex = 11;
+            // 
+            // txtISBN
+            // 
+            txtISBN.Location = new Point(879, 90);
+            txtISBN.Name = "txtISBN";
+            txtISBN.Size = new Size(194, 27);
+            txtISBN.TabIndex = 12;
+            // 
+            // txtSTockQuantity
+            // 
+            txtSTockQuantity.Location = new Point(51, 192);
+            txtSTockQuantity.Name = "txtSTockQuantity";
+            txtSTockQuantity.Size = new Size(194, 27);
+            txtSTockQuantity.TabIndex = 13;
+            // 
+            // dataGridViewBook
+            // 
+            dataGridViewBook.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewBook.Columns.AddRange(new DataGridViewColumn[] { BookID, Title, Author, Genre, ISBN, Price, StockQuantity });
+            dataGridViewBook.Location = new Point(95, 336);
+            dataGridViewBook.Name = "dataGridViewBook";
+            dataGridViewBook.RowHeadersWidth = 51;
+            dataGridViewBook.Size = new Size(927, 234);
+            dataGridViewBook.TabIndex = 14;
             // 
             // BookID
             // 
@@ -224,44 +235,46 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(988, 552);
-            Controls.Add(dataGridViewBooks);
-            Controls.Add(lblBookManagement);
+            ClientSize = new Size(1129, 582);
+            Controls.Add(dataGridViewBook);
+            Controls.Add(txtSTockQuantity);
+            Controls.Add(txtISBN);
+            Controls.Add(txtGenre);
+            Controls.Add(txtAuthor);
+            Controls.Add(txtTitle);
             Controls.Add(lblStockQuantity);
-            Controls.Add(textBox6);
-            Controls.Add(lblPrice);
-            Controls.Add(textBox5);
             Controls.Add(lblISBN);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
             Controls.Add(lblGenre);
             Controls.Add(lblAuthor);
             Controls.Add(lblTitle);
+            Controls.Add(btnSearch);
+            Controls.Add(btnDelete);
+            Controls.Add(btnUpdate);
+            Controls.Add(btnCreate);
             Name = "BookManagementForm";
             Text = "BookManagementForm";
-            ((System.ComponentModel.ISupportInitialize)dataGridViewBooks).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewBook).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
+        private Button btnCreate;
+        private Button btnUpdate;
+        private Button btnDelete;
+        private Button btnSearch;
         private Label lblTitle;
         private Label lblAuthor;
         private Label lblGenre;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
         private Label lblISBN;
-        private Label lblPrice;
-        private TextBox textBox5;
         private Label lblStockQuantity;
-        private TextBox textBox6;
-        private Label lblBookManagement;
-        private DataGridView dataGridViewBooks;
+        private TextBox txtTitle;
+        private TextBox txtAuthor;
+        private TextBox txtGenre;
+        private TextBox txtISBN;
+        private TextBox txtSTockQuantity;
+        private DataGridView dataGridViewBook;
         private DataGridViewTextBoxColumn BookID;
         private DataGridViewTextBoxColumn Title;
         private DataGridViewTextBoxColumn Author;

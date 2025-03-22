@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,29 +13,38 @@ namespace BookHaven_Bookstore_Management_System.Forms
 {
     public partial class BookManagementForm : Form
     {
+
+        private string connectionString = "Data Source=DESKTOP-3S5VJ4I;Initial Catalog=bookstore;Integrated Security=True";
+        private readonly object dataGridViewBooks;
+
+        //private DataGridView dataGridViewBooks;
+
         public BookManagementForm()
         {
             InitializeComponent();
+            LoadBooks();
+        }
+
+        private void LoadBooks()
+        {
+            string query = "SELECT * FROM Books";
+            using (SqlConnection connection = new SqlConnection(connectionString)) // Fixed typo in SqlConnection
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridViewBooks.DataSource = dt;
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            dataGridViewBooks.Columns.Clear();
-
-            dataGridViewBooks.Columns.Add("BookID", "Book ID");
-            dataGridViewBooks.Columns.Add("Title", "Title");
-            dataGridViewBooks.Columns.Add("Author", "Author");
-            dataGridViewBooks.Columns.Add("Genre", "Genre");
-            dataGridViewBooks.Columns.Add("ISBN", "ISBN");
-            dataGridViewBooks.Columns.Add("Price", "Price");
-            dataGridViewBooks.Columns.Add("StockQuantity", "Stock Quantity");
-
-            dataGridViewBooks.Columns["BookID"].ReadOnly = true;
         }
     }
 }

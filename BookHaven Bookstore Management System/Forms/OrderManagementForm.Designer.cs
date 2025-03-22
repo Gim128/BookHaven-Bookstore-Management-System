@@ -40,7 +40,15 @@
             TotalCost = new DataGridViewTextBoxColumn();
             OrderDate = new DataGridViewTextBoxColumn();
             Status = new DataGridViewTextBoxColumn();
+            cmbBooks = new ComboBox();
+            lblBooks = new Label();
+            cmbStatus = new ComboBox();
+            lblStatus = new Label();
+            cmbDeliveryOption = new ComboBox();
+            lblDeliveryOption = new Label();
+            numQuantity = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)dataGridViewOrder).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numQuantity).BeginInit();
             SuspendLayout();
             // 
             // cmbSelectCustomers
@@ -48,12 +56,12 @@
             cmbSelectCustomers.FormattingEnabled = true;
             cmbSelectCustomers.Location = new Point(61, 76);
             cmbSelectCustomers.Name = "cmbSelectCustomers";
-            cmbSelectCustomers.Size = new Size(270, 28);
+            cmbSelectCustomers.Size = new Size(168, 28);
             cmbSelectCustomers.TabIndex = 0;
             // 
             // btnPlaceOrder
             // 
-            btnPlaceOrder.Location = new Point(203, 147);
+            btnPlaceOrder.Location = new Point(848, 272);
             btnPlaceOrder.Name = "btnPlaceOrder";
             btnPlaceOrder.Size = new Size(181, 45);
             btnPlaceOrder.TabIndex = 1;
@@ -63,7 +71,7 @@
             // 
             // btnUpdateStatus
             // 
-            btnUpdateStatus.Location = new Point(417, 147);
+            btnUpdateStatus.Location = new Point(848, 341);
             btnUpdateStatus.Name = "btnUpdateStatus";
             btnUpdateStatus.Size = new Size(182, 47);
             btnUpdateStatus.TabIndex = 2;
@@ -72,12 +80,13 @@
             // 
             // btnTrackOrder
             // 
-            btnTrackOrder.Location = new Point(635, 146);
+            btnTrackOrder.Location = new Point(848, 413);
             btnTrackOrder.Name = "btnTrackOrder";
             btnTrackOrder.Size = new Size(181, 47);
             btnTrackOrder.TabIndex = 3;
             btnTrackOrder.Text = "Track Order";
             btnTrackOrder.UseVisualStyleBackColor = true;
+            btnTrackOrder.Click += btnTrackOrder_Click;
             // 
             // label1
             // 
@@ -92,7 +101,7 @@
             // 
             dataGridViewOrder.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewOrder.Columns.AddRange(new DataGridViewColumn[] { CustomerID, BookID, Quantity, TotalCost, OrderDate, Status });
-            dataGridViewOrder.Location = new Point(134, 240);
+            dataGridViewOrder.Location = new Point(15, 240);
             dataGridViewOrder.Name = "dataGridViewOrder";
             dataGridViewOrder.RowHeadersWidth = 51;
             dataGridViewOrder.Size = new Size(802, 285);
@@ -141,11 +150,76 @@
             Status.Name = "Status";
             Status.Width = 125;
             // 
+            // cmbBooks
+            // 
+            cmbBooks.FormattingEnabled = true;
+            cmbBooks.Location = new Point(265, 74);
+            cmbBooks.Name = "cmbBooks";
+            cmbBooks.Size = new Size(181, 28);
+            cmbBooks.TabIndex = 6;
+            // 
+            // lblBooks
+            // 
+            lblBooks.AutoSize = true;
+            lblBooks.Location = new Point(265, 42);
+            lblBooks.Name = "lblBooks";
+            lblBooks.Size = new Size(49, 20);
+            lblBooks.TabIndex = 7;
+            lblBooks.Text = "Books";
+            // 
+            // cmbStatus
+            // 
+            cmbStatus.FormattingEnabled = true;
+            cmbStatus.Location = new Point(620, 76);
+            cmbStatus.Name = "cmbStatus";
+            cmbStatus.Size = new Size(181, 28);
+            cmbStatus.TabIndex = 8;
+            // 
+            // lblStatus
+            // 
+            lblStatus.AutoSize = true;
+            lblStatus.Location = new Point(620, 42);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(49, 20);
+            lblStatus.TabIndex = 9;
+            lblStatus.Text = "Status";
+            // 
+            // cmbDeliveryOption
+            // 
+            cmbDeliveryOption.FormattingEnabled = true;
+            cmbDeliveryOption.Location = new Point(61, 150);
+            cmbDeliveryOption.Name = "cmbDeliveryOption";
+            cmbDeliveryOption.Size = new Size(181, 28);
+            cmbDeliveryOption.TabIndex = 10;
+            // 
+            // lblDeliveryOption
+            // 
+            lblDeliveryOption.AutoSize = true;
+            lblDeliveryOption.Location = new Point(61, 127);
+            lblDeliveryOption.Name = "lblDeliveryOption";
+            lblDeliveryOption.Size = new Size(113, 20);
+            lblDeliveryOption.TabIndex = 11;
+            lblDeliveryOption.Text = "Delivery Option";
+            // 
+            // numQuantity
+            // 
+            numQuantity.Location = new Point(461, 74);
+            numQuantity.Name = "numQuantity";
+            numQuantity.Size = new Size(78, 27);
+            numQuantity.TabIndex = 12;
+            // 
             // OrderManagementForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1076, 537);
+            Controls.Add(numQuantity);
+            Controls.Add(lblDeliveryOption);
+            Controls.Add(cmbDeliveryOption);
+            Controls.Add(lblStatus);
+            Controls.Add(cmbStatus);
+            Controls.Add(lblBooks);
+            Controls.Add(cmbBooks);
             Controls.Add(dataGridViewOrder);
             Controls.Add(label1);
             Controls.Add(btnTrackOrder);
@@ -155,6 +229,7 @@
             Name = "OrderManagementForm";
             Text = "OrderManagementForm";
             ((System.ComponentModel.ISupportInitialize)dataGridViewOrder).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numQuantity).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -173,5 +248,12 @@
         private DataGridViewTextBoxColumn TotalCost;
         private DataGridViewTextBoxColumn OrderDate;
         private DataGridViewTextBoxColumn Status;
+        private ComboBox cmbBooks;
+        private Label lblBooks;
+        private ComboBox cmbStatus;
+        private Label lblStatus;
+        private ComboBox cmbDeliveryOption;
+        private Label lblDeliveryOption;
+        private NumericUpDown numQuantity;
     }
 }
